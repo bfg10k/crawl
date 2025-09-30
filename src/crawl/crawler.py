@@ -40,10 +40,6 @@ class Crawler:
                     break
 
                 content, err = self.loader.load(url)
-                if err is not None:
-                    print(url, "ERROR", err)
-                else:
-                    print(url, "OK")
                 self.update_page(url, content, err)
                 self.queue.task_done()
         except Exception:
