@@ -64,7 +64,6 @@ class RateLimiter:
     def predict(self, now: int):
         with self.lock:
             if len(self.results) == 0:
-                print("no results")
                 result = True
             elif self.last_pred_true is not None and now - self.last_pred_true > 60:
                 # wait for up to 60 seconds
@@ -73,7 +72,6 @@ class RateLimiter:
                 stats = self.get_stats(now)
                 tree = self._build_tree()
                 result = tree.predict([stats])[0]
-                print("predict", result, "\t".join(f"{s:.2f}" for s in stats))
 
             if result:
                 self.last_pred_true = now
