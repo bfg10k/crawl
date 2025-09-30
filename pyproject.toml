@@ -1,0 +1,19 @@
+[project]
+name = "crawl"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Lei Zhao", email = "8961794+leizha@users.noreply.github.com" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "scikit-learn>=1.7.2",
+]
+
+[project.scripts]
+crawl = "crawl:main"
+
+[build-system]
+requires = ["uv_build>=0.8.12,<0.9.0"]
+build-backend = "uv_build"
