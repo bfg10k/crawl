@@ -70,6 +70,7 @@ class RateLimiter:
                 result = True
             else:
                 stats = self.get_stats(now)
+                # FIX: do not rebuild the tree too often
                 tree = self._build_tree()
                 result = tree.predict([stats])[0]
 

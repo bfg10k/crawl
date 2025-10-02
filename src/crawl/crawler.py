@@ -14,7 +14,7 @@ class Crawler:
         self.concurrency = concurrency
         self.queue = queue.Queue(maxsize=1)
 
-        self.db = sqlite3.connect(dbfile, check_same_thread=False)
+        self.db = sqlite3.connect(dbfile, check_same_thread=False, timeout=300)
         self.dblock = threading.Lock()
 
     def iter_urls(self):
